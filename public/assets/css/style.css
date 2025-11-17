@@ -288,9 +288,10 @@ body {
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.2;
+  margin-top: 20px; /* Adicionado para afastar do topo */
   margin-bottom: 30px;
 }
 
@@ -320,7 +321,7 @@ body {
 }
 
 .stat-item h3 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
   font-weight: 700;
   color: var(--primary-color);
   margin-bottom: 5px;
@@ -340,17 +341,28 @@ body {
 .hero-image {
   position: relative;
   height: 500px;
+  width: 100%;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
 }
 
 .floating-card {
-  position: absolute;
+  position: static;
   background: white;
-  padding: 20px;
+  padding: 20px 30px;
   border-radius: var(--radius-medium);
   box-shadow: var(--shadow-medium);
   text-align: center;
-  min-width: 140px;
-  animation: float 3s ease-in-out infinite;
+  width: 220px;
+  height: auto;
+  z-index: 5;
+  transform: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
 .floating-card i {
@@ -362,38 +374,29 @@ body {
 .floating-card h4 {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   color: var(--dark-color);
+  line-height: 1.2;
 }
 
 .floating-card p {
   font-size: 12px;
   color: var(--gray-medium);
   margin: 0;
+  line-height: 1.3;
 }
 
-.carbon-card {
-  top: 20%;
-  right: 20%;
-  animation-delay: 0s;
+.floating-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-heavy);
+  border: 2px solid var(--primary-color);
 }
 
-.impact-card {
-  top: 50%;
-  left: 10%;
-  animation-delay: 1s;
+.floating-card:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-medium);
 }
 
-.certification-card {
-  bottom: 20%;
-  right: 30%;
-  animation-delay: 2s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
 
 .scroll-indicator {
   position: absolute;
@@ -448,7 +451,7 @@ body {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 30px;
@@ -564,7 +567,7 @@ body {
 }
 
 .metric-card h3 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--dark-color);
   margin-bottom: 5px;
@@ -845,7 +848,7 @@ body {
 }
 
 .impact-card h3 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--dark-color);
   margin-bottom: 10px;
@@ -1033,7 +1036,7 @@ body {
 /* ===== BACK TO TOP ===== */
 .back-to-top {
   position: fixed;
-  bottom: 30px;
+  bottom: 100px;
   right: 30px;
   width: 50px;
   height: 50px;
@@ -1048,7 +1051,7 @@ body {
   transition: all var(--transition-fast);
   opacity: 0;
   visibility: hidden;
-  z-index: 999;
+  z-index: 998;
 }
 
 .back-to-top.show {
@@ -1073,18 +1076,24 @@ body {
   }
   
   .stat-item h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .floating-card {
     position: static;
-    margin: 20px auto;
+    margin: 0 auto;
     display: block;
+    width: 200px;
+    max-width: none;
   }
   
   .hero-image {
     height: auto;
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
   
   .metrics-grid {
@@ -1125,10 +1134,18 @@ body {
   }
   
   .back-to-top {
-    bottom: 20px;
+    bottom: 90px;
     right: 20px;
     width: 45px;
     height: 45px;
+  }
+
+  .impact-card h3 {
+    font-size: 1.8rem;
+  }
+
+  .metric-card h3 {
+    font-size: 1.3rem;
   }
 }
 
@@ -1156,6 +1173,14 @@ body {
   
   .solutions-tabs .nav-pills .nav-link {
     margin: 5px 0;
+  }
+  
+  .impact-card h3 {
+    font-size: 1.8rem;
+  }
+  
+  .metric-card h3 {
+    font-size: 1.3rem;
   }
 }
 
@@ -1466,7 +1491,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .chatbot-button {
@@ -1799,6 +1824,8 @@ body {
   .chatbot-window {
     width: 300px;
     height: 450px;
+    right: 0;
+    bottom: 75px;
   }
   
   .chatbot-container {
@@ -1815,5 +1842,23 @@ body {
     width: 40px;
     height: 40px;
   }
+  
+  .floating-card {
+    position: static !important;
+    margin: 15px auto;
+    display: block;
+    min-width: 120px;
+    max-width: 200px;
+    transform: none !important;
+  }
+  
+  .carbon-card,
+  .impact-card,
+  .certification-card {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
 }
-
