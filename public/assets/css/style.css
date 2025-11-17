@@ -291,7 +291,6 @@ body {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.2;
-  margin-top: 20px; /* Adicionado para afastar do topo */
   margin-bottom: 30px;
 }
 
@@ -1036,7 +1035,7 @@ body {
 /* ===== BACK TO TOP ===== */
 .back-to-top {
   position: fixed;
-  bottom: 100px;
+  bottom: 30px;
   right: 30px;
   width: 50px;
   height: 50px;
@@ -1051,7 +1050,7 @@ body {
   transition: all var(--transition-fast);
   opacity: 0;
   visibility: hidden;
-  z-index: 998;
+  z-index: 999;
 }
 
 .back-to-top.show {
@@ -1081,19 +1080,13 @@ body {
   
   .floating-card {
     position: static;
-    margin: 0 auto;
+    margin: 20px auto;
     display: block;
-    width: 200px;
-    max-width: none;
   }
   
   .hero-image {
     height: auto;
     margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
   }
   
   .metrics-grid {
@@ -1134,18 +1127,10 @@ body {
   }
   
   .back-to-top {
-    bottom: 90px;
+    bottom: 20px;
     right: 20px;
     width: 45px;
     height: 45px;
-  }
-
-  .impact-card h3 {
-    font-size: 1.8rem;
-  }
-
-  .metric-card h3 {
-    font-size: 1.3rem;
   }
 }
 
@@ -1491,7 +1476,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1001;
+  z-index: 1000;
 }
 
 .chatbot-button {
@@ -1824,8 +1809,6 @@ body {
   .chatbot-window {
     width: 300px;
     height: 450px;
-    right: 0;
-    bottom: 75px;
   }
   
   .chatbot-container {
@@ -1841,24 +1824,5 @@ body {
   .chatbot-avatar img {
     width: 40px;
     height: 40px;
-  }
-  
-  .floating-card {
-    position: static !important;
-    margin: 15px auto;
-    display: block;
-    min-width: 120px;
-    max-width: 200px;
-    transform: none !important;
-  }
-  
-  .carbon-card,
-  .impact-card,
-  .certification-card {
-    position: static !important;
-    top: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
   }
 }
